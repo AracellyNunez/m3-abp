@@ -32,12 +32,13 @@ function esMuestraBiologicamenteValida(hb, hto, rbc) {
     // Cálculo de la CHCM para valores inexistentes
     const chcmCalculada = (hb * 100) / hto;
 
-    // Si la relación Hb/Hto da una CHCM menor a 22 o mayor a 38, los valores son un error de digitación.
-    if (chcmCalculada < 22 || chcmCalculada > 38) {
+    // Si la relación Hb/Hto da una CHCM menor a 15 o mayor a 50, los valores son un error de digitación.
+    if (chcmCalculada < 15 || chcmCalculada > 50) {
         return false;
     }
+
     const vcmCalculado = (hto * 10) / rbc;
-    if (vcmCalculado < 45 || vcmCalculado > 150) {
+    if (vcmCalculado < 40 || vcmCalculado > 160) {
         return false;
     }
 
