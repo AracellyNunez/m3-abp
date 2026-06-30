@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Clínico - Calculadora de Constantes Hematológicas</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🔬 Analizador de Constantes Hematimétricas y Anemias</h1>
+            <p class="sub-bar">Unidad de Hematología - Control de Pacientes</p>
+        </header>
+
+        <section class="card">
+            <h2>📋 Ingreso de Datos del Paciente</h2>
+            <form id="form-paciente">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" placeholder="Ej: Consuelo Vázquez" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="grupo">Grupo Sanguíneo:</label>
+                        <select id="grupo" required>
+                            <option value="">Seleccione...</option>
+                            <option value="O+">O Positivo (O+)</option>
+                            <option value="O-">O Negativo (O-)</option>
+                            <option value="A+">A Positivo (A+)</option>
+                            <option value="A-">A Negativo (A-)</option>
+                            <option value="B+">B Positivo (B+)</option>
+                            <option value="B-">B Negativo (B-)</option>
+                            <option value="AB+">AB Positivo (AB+)</option>
+                            <option value="AB-">AB Negativo (AB-)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rbc">Glóbulos Rojos (RBC) <small>(millones/µL)</small>:</label>
+                        <input type="number" id="rbc" step="0.01" placeholder="Ej: 4.5" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hb">Hemoglobina (Hb) <small>(g/dL)</small>:</label>
+                        <input type="number" id="hb" step="0.1" placeholder="Ej: 11.2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hto">Hematocrito (Hto) <small>(%)</small>:</label>
+                        <input type="number" id="hto" step="0.1" placeholder="Ej: 34" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Calcular y Agregar Paciente</button>
+            </form>
+        </section>
+
+        <section id="seccion-resultado" class="card hidden">
+            <h2>📊 Resultado del Análisis Actual</h2>
+            <div id="alerta-critica" class="alerta hidden"></div>
+
+            <div class="resultados-grid">
+                <div class="res-box"><strong>VCM:</strong> <span id="res-vcm">0</span> fL</div>
+                <div class="res-box"><strong>HCM:</strong> <span id="res-hcm">0</span> pg</div>
+                <div class="res-box"><strong>CHCM:</strong> <span id="res-chcm">0</span> g/dL</div>
+            </div>
+
+            <div class="clasificacion-box">
+                <strong>Diagnóstico Morfológico Sugerido:</strong>
+                <span id="res-diagnose" class="badge">Ninguno</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🗂️ Registro Histórico de la Jornada</h2>
+            <div class="table-wrapper">
+                <table id="tabla-pacientes">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Grupo</th>
+                            <th>Hb (g/dL)</th>
+                            <th>VCM (fL)</th>
+                            <th>HCM (pg)</th>
+                            <th>Clasificación Morfológica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="fila-vacia">
+                            <td colspan="6" style="text-align: center; color: #777;">No hay pacientes registrados en
+                                esta tanda.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Aracelly Núñez</p>
+    </footer>
+
+    <script src="./assets/js/index.js"></script>
+
+
+</body>
+
+</html>
